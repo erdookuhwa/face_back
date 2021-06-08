@@ -19,12 +19,12 @@ const db = knex({
 });
 
 const app = express();
-app.use(bodyParser.json());
 app.use(cors());
+app.use(bodyParser.json());
 
 // home route
 app.get('/', (request, response) => {
-    response.send('success');
+    response.send(db.users);
 })
 
 app.post('/signin', (request, response) => { signin.handleSignin(request, response, db, bcrypt) } );

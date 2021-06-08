@@ -5,9 +5,8 @@ const app = new Clarifai.App({
 });
 
 const handleClarifai = (request, response) => {
-    const { input } = request.body;
     app.models
-        .predict(Clarifai.FACE_DETECT_MODEL, input)
+        .predict(Clarifai.FACE_DETECT_MODEL, request.body.input)
         .then(data => {
             response.json(data);
         })
@@ -26,6 +25,6 @@ const handleImage = (request, response, db) => {
 };
 
 module.exports = {
-    handleImage: handleImage,
-    handleClarifai: handleClarifai
+    handleImage,
+    handleClarifai
 }
