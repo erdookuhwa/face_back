@@ -39,6 +39,6 @@ app.put('/image', (request, response) => { image.handleImage(request, response, 
 
 app.post('/imageurl', (request, response) => { image.handleClarifai(request, response) } );
 
-app.listen(3000, () => {
-    console.log(`app is running on port 3000`)
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`app is running on port ${process.env.PORT}`)
 })
