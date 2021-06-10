@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 
 // home route
 app.get('/', (request, response) => {
-    response.send(db.users);
+    response.send('success');
 })
 
 app.post('/signin', (request, response) => { signin.handleSignin(request, response, db, bcrypt) } );
