@@ -37,6 +37,7 @@ app.use(bodyParser.json());
 
 // home route
 app.get('/', (request, response) => {
+    console.log('process -> ', process.env.DATABASE_URL)
     response.send('success');
 })
 
