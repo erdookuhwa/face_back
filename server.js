@@ -3,13 +3,11 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const knex = require('knex');
-require('dotenv').config();
 
 const register = require('./controllers/register');
 const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
-
 
 const db = knex({
     client: 'pg',
@@ -21,23 +19,12 @@ const db = knex({
     }
 });
 
-// const db = knex({
-//     client: 'pg',
-//     connection: {
-//         host: '127.0.0.1',
-//         user: 'postgres',
-//         password: '',
-//         database: 'face-db'
-//     }
-// })
-
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
 // home route
 app.get('/', (request, response) => {
-    console.log('process -> ', process.env.DATABASE_URL)
     response.send('success');
 })
 
